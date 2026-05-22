@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your Cart</title>
+
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background-image:url("https://t4.ftcdn.net/jpg/03/17/09/57/360_F_317095717_dcvkRa9F8lOHgvfTVEVwQEKuHMoBviQO.jpg");
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+/* NAVBAR */
+.navbar{
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#b76e79;
+}
+
+h1{
+  text-align:center;
+  color:#b76e79;
+  margin-top:20px;
+}
+
+/* CART ITEMS */
+.cart-container{
+  width:80%;
+  margin:30px auto;
+}
+
+.cart-item{
+  background:white;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:15px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.cart-item:hover{
+  transform:scale(1.02);
+}
+
+.cart-item img{
+  width:100px;
+  border-radius:10px;
+}
+
+.details{
+  flex:1;
+}
+
+.details h3{
+  margin:0;
+}
+
+.price{
+  color:#b76e79;
+  font-weight:bold;
+}
+
+/* TOTAL */
+.total{
+  text-align:right;
+  margin:20px;
+  font-size:20px;
+  font-weight:bold;
+  color:#b76e79;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">Glow 4 U</div>
+  <div>🛒 Cart Page</div>
+</div>
+
+<h1>Your Cart</h1>
+
+<div class="cart-container" id="cartItems"></div>
+
+<div class="total" id="totalPrice"></div>
+<script>
+let cart = [];
+
+// LOAD CART DATA
+function loadCart(){
+  let data = localStorage.getItem("cart");
+
+  if(data){
+    cart = JSON.parse(data);
+  } else {
+    cart = [];
+  }
+
+  displayCart();
+}
+
+// DISPLAY CART
+function displayCart(){
+  let container = document.getElementById("cartItems");
+  let total = 0;
+
+  container.innerHTML = "";
+
+  if(cart.length === 0){
+    container.innerHTML = "<h3 style='text-align:center;'>Your cart is empty 😢</h3>";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    total += parseInt(item.price);
+
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}">
+        <div class="details">
+          <h3>${item.name}</h3>
+          <p>${item.desc || ""}</p>
+          <p class="price">₹${item.price}</p>
+
+          <button onclick="removeItem(${index})">
+            Remove
+          </button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("totalPrice").innerText = "Total: ₹" + total;
+}
+
+// REMOVE ITEM
+function removeItem(index){
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
+}
+
+// RUN ON LOAD
+window.onload = loadCart;
+</script>
+</body>
+
+</html>

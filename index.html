@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Glow 4 U</title>
+
+  <!-- ✅ RESPONSIVE META TAG -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background-image: url("background image.jpg");
+      background-attachment: fixed;
+      padding-top: 100px;
+      background-size: contain;
+    }
+
+    button {
+      background: #b76e79;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #a65c67;
+    }
+
+    select {
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #b76e79;
+    }
+
+    input,
+    textarea {
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #b76e79;
+    }
+
+    img {
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    img:hover {
+      transform: scale(1.08);
+    }
+
+    /* ✅ RESPONSIVE CSS */
+    @media (max-width: 768px) {
+      table {
+        width: 100% !important;
+      }
+
+      table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table td {
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 12px;
+      }
+
+      input[type="text"] {
+        width: 90% !important;
+      }
+
+      img {
+        width: 80% !important;
+        height: auto;
+      }
+
+      button {
+        width: 70%;
+      }
+
+      textarea,
+      input {
+        width: 90% !important;
+      }
+
+      /* ✅ Reviews: stack on mobile */
+      .review-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .review-card {
+        width: min(340px, 92%);
+      }
+    }
+
+    .hero-banner {
+      width: 80%;
+      height: 420px;
+      background-image: url("banner.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      margin-top: 120px;
+    }
+
+    .reviews {
+      text-align: center;
+      padding: 50px 20px;
+      background: #f5f7fb;
+    }
+
+    .reviews h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: gray;
+      margin-bottom: 30px;
+    }
+
+    /* ✅ FIXED: Reviews horizontal (flex row) */
+    .review-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: #dfe8f5;
+      padding: 20px;
+      width: 280px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .review-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .review-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    .review-card h3 {
+       margin: 5px 0;   /* top bottom left right*/
+    }
+
+    .review-card h4 {
+      margin: 10px 0;
+    }
+
+    .review-card p {
+      font-size: 14px;
+      color: #333;
+      margin: 6px 0;
+    }
+
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      position: fixed; /* position fixed on scrolling*/
+      width: 100%;  /*cover all width*/
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      padding: 18px 20px;
+      }
+      .icons {
+  flex-shrink: 0;
+}
+
+    /* LEFT LOGO */
+    .logo img {
+      height: 100px;
+    }
+
+    /* CENTER MENU */
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #b76e79;
+    }
+
+    /* SEARCH BAR */
+    .search-box {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-box input {
+      width: 60%;
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: 1px solid #b76e79;
+      outline: none;
+    }
+
+    /* RIGHT ICONS */
+    .icons {
+      display: flex;
+      gap: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .footer {
+      background: #e9e3e6;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+
+    .newsletter {
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 28px;
+    }
+
+    .newsletter span {
+      font-style: italic;
+    }
+
+    .email-box {
+      margin-top: 15px;
+      display: flex;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto; /*horizontal centering*/
+    }
+
+    .email-box input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px 0 0 8px;
+      border: none;
+    }
+
+    .email-box button {
+      background: pink;
+
+      border: none;
+      color: white;
+      padding: 0 15px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 10px;
+    }
+
+    .footer-links p {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    .social {
+      text-align: center;
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .social h2 {
+      margin-bottom: 10px;
+    }
+
+    .social .icons span {
+      font-size: 22px;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+    .social .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+    }
+
+    .slider {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.6s ease-in-out; /*slow fast slow*/
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .announcement-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #b76e79;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      z-index: 2000;
+    }
+
+    #announcementText {
+      transition: opacity 0.4s ease;
+    }
+
+    /* Navbar ko thoda neeche push karo */
+    .navbar {
+      top: 35px;
+      box-sizing: border-box;
+    }
+
+    #cartBox {      /*for cart pop up*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #cartBox>div {         /*#cartBox's direct child <div> select karo.*/
+      display: flex;
+      flex-direction: column;
+    }
+
+    #cartItems {
+      flex: 1;
+      overflow-y: auto;    /*vertical scrolling control */
+    }
+
+    #cartTotalBox {
+      position: sticky;     /*cart ke total section ko bottom par sticky rakhne ke liye use hua hai.*/
+      bottom: 0;
+      background: white;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <a id="top"></a>
+  <!-- 🔔 Announcement Bar -->
+  <div class="announcement-bar">
+    <span id="announcementText">✨ Flat 50% OFF on all orders ✨</span>
+  </div>
+
+  <div class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\logo.png">
+    </div>
+
+    <!-- MENU -->
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Skin</a>
+      <a href="#">Body</a>
+      <a href="#">Hair</a>
+      <a href="#">Makeup</a>
+
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for products..." autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false">
+    </div>
+
+    <!-- ICONS -->
+    <div class="icons" style="display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 20px; min-width: max-content;">
+      <span onclick="openOrderBox()" title="Track Orders">🚚</span>
+    <a href="#" onclick="openProfile()" style="text-decoration:none;">
+    <font size="5">👤</font>
+    </a>
+      <span onclick="viewCart()" style="position:relative; cursor:pointer; display: flex; align-items: center;" title="View Cart">
+        🛒
+      <span id="cartCount" style="position:absolute;top:-8px;right:-12px;background:#b76e79;color:white;border-radius:50%;padding:2px 6px;font-size:12px;font-weight:bold;line-height:1;">0</span>
+      </span>
+      <span onclick="openLogin()" title="Login">🔑</span>
+    </div>
+
+    <!-- CART MODAL -->
+    <div id="cartBox" style="
+    display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.5);
+z-index:999;
+">
+        <div style="
+  background:white;
+  width:95%;
+  max-width:1200px;
+  height:85vh;
+  margin:40px auto;
+  padding:25px;
+  border-radius:15px;
+  overflow-y:auto;  
+">
+          <h2 style="text-align:center;color:#b76e79;">🚚 Your Orders <span onclick="closeCart()" style="float:right;cursor:pointer;font-size:20px;">❌</span></h2>
+
+          <div id="cartItems"></div>
+
+          <div id="cartTotalBox">
+            <h3>Total: ₹<span id="cartTotal">0</span></h3>
+          </div>
+
+          <button onclick="closeCart()">Close</button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 🚚 ORDER TRACKING BOX -->
+<div id="orderBox" style="
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.5);
+z-index:9999;
+">
+  <div style="
+  background:white;
+  width:90%;
+  max-width:800px;
+  height:80vh;
+  margin:50px auto;
+  padding:20px;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+">
+    <h2 style="color:#b76e79;text-align:center;">
+      🚚 Your Orders
+      <span onclick="closeOrder()" style="
+  position:absolute;
+  right:20px;
+  top:15px;
+  font-size:24px;
+  cursor:pointer;
+  color:#b76e79;
+  font-weight:bold;
+">
+  ❌
+</span>
+    </h2>
+
+    <div id="orderItems" style="flex:1; overflow-y:auto;"></div>
+    <div id="orderTotalBox" style="
+  border-top:1px solid #ddd;
+  padding:10px;
+  text-align:center;
+">
+  <h3>Total: ₹<span id="orderTotal">0</span></h3>
+</div>
+  </div>
+</div>
+
+  <!-- HERO SLIDER -->
+  <div class="hero-banner">
+    <div class="slider">
+
+      <div class="slide active">
+        <img src="banner.jpg">
+      </div>
+
+      <div class="slide">
+        <img src="banner2.jpg">
+      </div>
+
+      <div class="slide">
+        <img src="banner3.jpg">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <table width="100%" cellpadding="12">
+    <tr align="center">
+      <td>
+        <font color="#b76e79"><b>Skin</b></font>
+        <br><br>
+        <select onchange="if(this.value) window.location.href=this.value;">
+          <option value="">Choose Product</option>
+          <option value="facewash.html">Face Wash</option>
+          <option value="serum.html">Serum</option>
+          <option value="moisturizer.html">Moisturizer</option>
+        </select>
+      </td>
+
+      <td>
+        <font color="#b76e79"><b>Body</b></font>
+        <br><br>
+        <select onchange="if(this.value) window.location.href=this.value;">
+          <option value="">Choose Product</option>
+          <option value="bodywash.html">Body Wash</option>
+          <option value="bodylotion.html">Body Lotion</option>
+          <option value="bodyscrub.html">Body Scrub</option>
+        </select>
+      </td>
+
+      <td>
+        <font color="#b76e79"><b>Hair</b></font>
+        <br><br>
+        <select onchange="if(this.value) window.location.href=this.value;">
+          <option value="">Choose Product</option>
+          <option value="shampoo.html">Shampoo</option>
+          <option value="conditioner.html">Conditioner</option>
+          <option value="hairoil.html">Hair Oil</option>
+        </select>
+      </td>
+
+      <td>
+        <font color="#b76e79"><b>Makeup</b></font>
+        <br><br>
+        <select onchange="if(this.value) window.location.href=this.value;">
+          <option value="">Choose Product</option>
+          <option value="foundation.html">Foundation</option>
+          <option value="lipstick.html">Lipstick</option>
+          <option value="eyeliner.html">Eyeliner</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <br><br>
+
+  <table width="100%" cellpadding="10">
+    <tr id="moisturizerSection">
+      <td colspan="5" align="center">
+        <font size="5" color="#b76e79"><b>Moisturizer</b></font>
+      </td>
+    </tr>
+
+    <tr align="center">
+      <td>
+        <img src='C:\Users\hp\OneDrive\Desktop\website\moisturizer.png' width="280"><br>
+        <b>Glow Moisturizer</b><br>
+        ⭐ 4.7 | 245 Reviews<br>
+        Deep hydration cream for soft glowing skin.<br>
+        <b>₹599</b> <strike>₹799</strike>
+        <font color="red">25% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Glow Moisturizer',
+799,
+'moisturizer.png',
+'Deep hydration cream for soft glowing skin.'
+
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src='C:\Users\hp\OneDrive\Desktop\website\moisturiser2.jpeg' width="280"><br>
+        <b>Hydrating Cream</b><br>
+        ⭐ 4.6 | 182 Reviews<br>
+        Lightweight cream that keeps skin moisturized all day.<br>
+        <b>₹399</b> <strike>₹549</strike>
+        <font color="red">27% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Hydrating Cream',
+549,
+'moisturiser2.jpeg',
+'Lightweight cream for daily hydration'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src='C:\Users\hp\OneDrive\Desktop\website\moisturiser 3.jpeg' width="280"><br>
+        <b>Vitamin Moisturizer</b><br>
+        ⭐ 4.5 | 150 Reviews<br>
+        Vitamin enriched cream for healthy glowing skin.<br>
+        <b>₹499</b> <strike>₹699</strike>
+        <font color="red">28% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Vitamin Moisturizer',
+699,
+'moisturiser 3.jpeg',
+'Vitamin enriched cream for healthy glowing skin.'
+
+
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\moisturiser6.jpeg" width="280"><br>
+        <b>Night Repair Cream</b><br>
+        ⭐ 4.8 | 310 Reviews<br>
+        Repair cream that nourishes skin overnight.<br>
+        <b>₹699</b> <strike>₹899</strike>
+        <font color="red">22% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Night Repair Cream',
+899,
+'moisturiser6.jpeg',
+'Repair cream that nourishes skin overnight.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\moisturiser 5.jpeg" width="280"><br>
+        <b>Brightening Cream</b><br>
+        ⭐ 4.6 | 201 Reviews<br>
+        Brightens dull skin and improves texture.<br>
+        <b>₹549</b> <strike>₹749</strike>
+        <font color="red">26% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Brightening Cream',
+549,
+'moisturiser 5.jpeg',
+'Brightens dull skin and improves texture.'
+)">
+          Add to cart
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <br><br>
+
+  <!-- Sunscreen -->
+  <table width="100%" cellpadding="10">
+    <tr id="sunscreenSection">
+      <td colspan="5" align="center">
+        <font size="5" color="#b76e79"><b>Sunscreen</b></font>
+      </td>
+    </tr>
+
+    <tr align="center">
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\suncreen spf 50.jpg" width="280"><br>
+        <b>SPF 50 Sunscreen</b><br>
+        ⭐ 4.7 | 410 Reviews<br>
+        Broad spectrum sunscreen for UV protection.<br>
+        <b>₹499</b> <strike>₹699</strike>
+        <font color="red">28% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'SPF 50 Sunscreen',
+549,
+'suncreen spf 50.jpg',
+'Broad spectrum sunscreen for UV protection.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\ultra protection.jpg" width="280"><br>
+        <b>Ultra Protection</b><br>
+        ⭐ 4.6 | 300 Reviews<br>
+        Strong sun protection with hydrating formula.<br>
+        <b>₹449</b> <strike>₹649</strike>
+        <font color="red">25% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Ultra Protection',
+649,
+'ultra protection.jpg',
+'Strong sun protection with hydrating formula.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\matte sunscreen.jpg" width="280"><br>
+        <b>Matte Sunscreen</b><br>
+        ⭐ 4.5 | 260 Reviews<br>
+        Oil-free sunscreen perfect for oily skin.<br>
+        <b>₹399</b> <strike>₹599</strike>
+        <font color="red">30% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Matte Sunscreen',
+599,
+'matte sunscreen.jpg',
+' Oil-free sunscreen perfect for oily skin.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\gel sunscreen.jpg" width="280"><br>
+        <b>Gel Sunscreen</b><br>
+        ⭐ 4.7 | 330 Reviews<br>
+        Lightweight gel sunscreen with fast absorption.<br>
+        <b>₹499</b> <strike>₹699</strike>
+        <font color="red">28% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Gel Sunscreen',
+499,
+'gel sunscreen.jpg',
+' Lightweight gel sunscreen with fast absorption.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\hydra sunscreen.jpg" width="170"><br>
+        <b>Hydra Sunscreen</b><br>
+        ⭐ 4.6 | 270 Reviews<br>
+        Hydrating sunscreen for dry skin protection.<br>
+        <b>₹459</b> <strike>₹659</strike>
+        <font color="red">26% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Hydra Sunscreen',
+659,
+'hydra sunscreen.jpg',
+' Hydrating sunscreen for dry skin protection.'
+)">
+          Add to cart
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <br><br>
+
+  <!-- Serum -->
+  <table width="100%" cellpadding="10">
+    <tr id="serumSection">
+      <td colspan="5" align="center">
+        <font size="5" color="#b76e79"><b>Serum</b></font>
+      </td>
+    </tr>
+
+    <tr align="center">
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\vitamin c serum.jpg" width="280"><br>
+        <b>Vitamin C Serum</b><br>
+        ⭐ 4.8 | 320 Reviews<br>
+        Brightening serum for glowing radiant skin.<br>
+        <b>₹699</b> <strike>₹899</strike>
+        <font color="red">22% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Vitamin C Serum',
+699,
+'vitamin c serum.jpg',
+' Brightening serum for glowing radiant skin.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\brighting serum.jpg" width="280"><br>
+        <b>Brightening Serum</b><br>
+        ⭐ 4.6 | 210 Reviews<br>
+        Improves skin glow and reduces dullness.<br>
+        <b>₹599</b> <strike>₹799</strike>
+        <font color="red">25% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Brightening Serum',
+599,
+'brighting serum.jpg',
+'Improves skin glow and reduces dullness.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\niacinamide.jpg" width="280"><br>
+        <b>Niacinamide Serum</b><br>
+        ⭐ 4.7 | 290 Reviews<br>
+        Controls oil and improves skin texture.<br>
+        <b>₹500</b> <strike>₹700</strike>
+        <font color="red">28% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Niacinamide Serum',
+700,
+'niacinamide.jpg',
+'Controls oil and improves skin texture.'
+)">
+          Add to cart
+        </button>
+      </td>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\retinol serum.jpg" width="280"><br>
+        <b>Retinol Serum</b><br>
+        ⭐ 4.6 | 250 Reviews<br>
+        Anti-aging serum that smooths fine lines.<br>
+        <b>₹485</b> <strike>₹685</strike>
+        <font color="red">29% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Retinol Serum',
+485,
+'retinol serum.jpg',
+'Anti-aging serum that smooths fine lines.'
+)">
+          Add to cart
+        </button>
+
+      <td>
+        <img src="C:\Users\hp\OneDrive\Desktop\website\hyaluric serum.jpg" width="280"><br>
+        <b>Hyaluronic Serum</b><br>
+        ⭐ 4.7 | 280 Reviews<br>
+        Deep hydration serum for plump skin.<br>
+        <b>₹685</b> <strike>₹885</strike>
+        <font color="red">23% OFF</font>
+        <br><br>
+        <button onclick="addToCart(
+'Hyaluronic Serum',
+885,
+'hyaluric serum.jpg',
+'Deep hydration serum for plump skin.'
+)">
+          Add to cart
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <br><br>
+
+  <!-- Review Section -->
+  <section class="reviews">
+    <h2>Loved by Thousands of Happy Customers</h2>
+    <p class="subtitle">Real Reviews from Real People 🌸</p>
+
+    <div class="review-container">
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/79.jpg" width="70"
+height="70">
+        <h3>Pari Sharma</h3>
+        <p class="stars">★★★★☆</p>
+        <h4>Amazing Results!</h4>
+        <p>My skin feels so soft and glowing after using this. Totally worth it!</p>
+      </div>
+
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg">
+        <h3>Aditi Verma</h3>
+        <p class="stars">★★★★★</p>
+        <h4>Perfect for Daily Use</h4>
+        <p>I use it daily and my skin has improved so much. Love it 💖</p>
+      </div>
+
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg">
+        <h3>Rahul Mehta</h3>
+        <p class="stars">★★★★☆</p>
+        <h4>Highly Recommended</h4>
+        <p>Very good product. Light, non-sticky and gives instant glow.</p>
+      </div>
+
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/63.jpg">
+        <h3>Sneha Kapoor</h3>
+        <p class="stars">★★★★★</p>
+        <h4>Glow Boosting!</h4>
+        <p>This product gives instant glow. Perfect before makeup 💄</p>
+      </div>
+
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/men/52.jpg">
+        <h3>Karan Singh</h3>
+        <p class="stars">★★★★☆</p>
+        <h4>Good Quality</h4>
+        <p>Really nice product. Packaging is also very premium.</p>
+      </div>
+
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/72.jpg">
+        <h3>Riya Gupta</h3>
+        <p class="stars">★★★★★</p>
+        <h4>My Daily Essential</h4>
+        <p>I can’t skip this in my routine now. Totally obsessed 😍</p>
+      </div>
+
+
+  </section>
+  <!-- Feedback Form -->
+  <form action="#top">
+    <table width="60%" align="center" cellpadding="10">
+      <tr>
+        <td colspan="2" align="center">
+          <font size="5" color="#b76e79"><b>Customer Feedback</b></font>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Name</td>
+        <td><input type="text" size="40" required></td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td><input type="email" size="40" required></td>
+      </tr>
+
+      <tr>
+        <td>Feedback</td>
+        <td><textarea rows="5" cols="38" required></textarea></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <button type="submit" style="padding:10px 25px;">Submit</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <br><br>
+
+
+  <!-- Help & Support -->
+  <table width="100%" bgcolor="#f8e6e9" cellpadding="20">
+    <tr>
+      <td align="center">
+        <font size="6" color="#b76e79"><b>Help & Support</b></font>
+      </td>
+    </tr>
+
+    <tr align="center">
+      <td>
+        <font size="4" color="#b76e79"><b>Customer Care</b></font>
+        <br><br>
+        Need Help? Our team is always ready to assist you.
+        <br><br>
+        📞 Phone: +91 98765 43210
+        <br><br>
+        📧 Email: glow4u@gmail.com
+        <br><br>
+        🕒 Support Time: 9 AM – 9PM
+      </td>
+    </tr>
+  </table>
+  <!--footer-->
+  <div class="footer">
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <h2>Be the <span>FIRST</span> to know!</h2>
+      <p>Get early drops, insider science & offers that feel like magic.</p>
+
+      <div class="email-box">
+        <input type="text" placeholder="Enter address">
+        <button>➤</button>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-links">
+
+      <div>
+        <h3>Shop</h3>
+        <p>Skincare</p>
+        <p>Bodycare</p>
+        <p>Haircare</p>
+        <p>Fragrances</p>
+      </div>
+
+      <div>
+        <h3>Learn</h3>
+        <p>About us</p>
+        <p>Blogs</p>
+        <p>Loyalty program</p>
+      </div>
+
+      <div>
+        <h3>Help</h3>
+        <p>FAQs</p>
+        <p>Contact us</p>
+      </div>
+
+    </div>
+
+    <!-- Social -->
+    <div class="social">
+      <h2>GET in TOUCH</h2>
+      <div class="icons">
+        <span>📞</span>
+        <span>💬</span>
+        <span>✉️</span>
+        <span>📸</span>
+        <span>▶️</span>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>Privacy policy | Terms of service</p>
+    </div>
+
+  </div>
+
+ <!-- LOGIN POPUP -->
+<div id="loginBox" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:9999;
+">
+
+  <div style="
+    background:white;
+    width:90%;
+    max-width:400px;
+    margin:100px auto;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+  ">
+
+    <h2 style="color:#b76e79;">👤 Login</h2>
+
+    <input type="text" id="username" placeholder="Enter Username"
+      style="width:90%;margin:10px;padding:10px;border-radius:10px;border:1px solid #b76e79;">
+
+    <input type="password" id="password" placeholder="Enter Password"
+      style="width:90%;margin:10px;padding:10px;border-radius:10px;border:1px solid #b76e79;">
+
+    <br><br>
+
+    <button onclick="loginUser()">Login</button>
+    <button onclick="closeLogin()" style="background:gray;">Close</button>
+
+  </div>
+</div>
+
+<!-- PROFILE POPUP -->
+<div id="profileBox" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:9999;
+">
+
+<div style="
+background:white;
+width:80%;
+max-width:600px;
+margin:80px auto;
+padding:20px;
+border-radius:15px;
+">
+
+<h2 style="color:#b76e79; text-align:center;">👤 Team Glow 4 U</h2>
+
+<p><b>Website Info:</b><br>
+Glow 4 U is a skincare website that offers products for skincare, haircare, body care, and makeup
+</p>
+
+<p><b>Team Members:</b></p>
+<ul>
+<li>Aditi → Skincare Section 💖</li>
+<li>Vidhi → Bodycare Section 🧴</li>
+<li>Abhishek → Haircare Section 💇‍♂️</li>
+<li>Kritika → Makeup Section 💄</li>
+</ul>
+
+<p><b>Features:</b></p>
+<ul>
+<li>✔ Product Categories</li>
+<li>✔ Add to Cart</li>
+<li>✔ Ratings & Reviews</li>
+<li>✔ Offers</li>
+<li>✔ Feedback Form</li>
+</ul>
+
+<center>
+<button onclick="closeProfile()">Close</button>
+</center>
+
+</div>
+</div>
+<script>
+function openProfile(){
+document.getElementById("profileBox").style.display="block";
+}
+
+function closeProfile(){
+document.getElementById("profileBox").style.display="none";
+}
+    function openLogin() {
+  document.getElementById("loginBox").style.display = "block";
+}
+function closeLogin() {
+  document.getElementById("loginBox").style.display = "none";
+}
+function loginUser() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+
+  if (!user || !pass) {
+    alert("⚠️ Please fill all fields");
+    return;
+  }
+
+  alert("✅ Login Successful Welcome " + user);
+  closeLogin();
+}
+    function openProfile() {
+      document.getElementById("profileBox").style.display = "block";
+    }
+
+    function closeProfile() {
+      document.getElementById("profileBox").style.display = "none";
+    }
+
+    const words = [
+      "Search for serum...",
+      "Search for facewash...",
+      "Search for moisturizer...",
+      "Search for sunscreen...",
+      "Search for lipstick..."
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+
+    function typeEffect() {
+      const input = document.getElementById("searchInput");
+
+      if (!input) return;  // safety
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+        }
+        else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+        }
+
+        input.placeholder = currentWord;
+
+        if (j === words[i].length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+        else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+        }
+      }
+
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+
+    // ADD TO CART
+    function addToCart(name, price, image, desc) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price: parseInt(price), image, desc });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      let box = document.getElementById("cartBox");
+      if(box && box.style.display === "block") {
+        loadCart();
+      }
+    }
+
+    // CART COUNT UPDATE
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let el = document.getElementById("cartCount");
+      if (el) {
+        el.innerText = cart.length;
+      }
+    }
+
+    window.onload = function () {
+      updateCartCount();
+      typeEffect();
+    }
+
+    // VIEW CART (POPUP)
+    function viewCart() {
+      let box = document.getElementById("cartBox");
+      if(box) {
+         box.style.display = "block";
+         loadCart();
+      }
+    }
+
+    function closeCart() {
+      let box = document.getElementById("cartBox");
+      if(box) box.style.display = "none";
+    }
+
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let container = document.getElementById("cartItems");
+      if(!container) return;
+
+      if (cart.length === 0) {
+        container.innerHTML = "<h3 style='text-align:center'>Cart is empty 😢</h3>";
+        let ct = document.getElementById("cartTotal");
+        if(ct) ct.innerText = "0";
+        return;
+      }
+
+      container.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += parseInt(item.price);
+        container.innerHTML += `
+        <div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:12px;display:flex;align-items:center;justify-content:space-between;position:relative;flex-wrap:wrap;">
+          <span onclick="removeItem(${index})" style="position:absolute;top:10px;right:15px;font-size:18px;cursor:pointer;color:#b76e79;font-weight:bold;">❌</span>
+          <div style="display:flex; align-items:center; gap:15px;">
+            <img src="${item.image}" style="width:80px;height:80px;object-fit:cover;border-radius:10px;">
+            <div>
+              <b>${item.name}</b><br>
+              ₹${item.price}
+            </div>
+          </div>
+          <button onclick="orderNow(${index})" style="background:#b76e79;color:white;border:none;padding:10px 18px;border-radius:20px;cursor:pointer;">Order Now</button>
+        </div>
+        `;
+      });
+      let ct = document.getElementById("cartTotal");
+      if(ct) ct.innerText = total;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+      updateCartCount();
+    }
+
+  function orderNow(index) {                          /*shipping*/
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let item = cart[index];
+
+  let order = {
+    name: item.name,
+    price: item.price,
+    image: item.image,
+    status: "Order Placed"
+  };
+
+  orders.push(order); // 🚚 goes in truck
+
+  cart.splice(index, 1);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert("✅ Order Placed!");
+
+  loadCart();
+  updateCartCount();
+}
+
+    let slides = document.querySelectorAll(".slide");    /*banner code*/
+    let index = 0;
+    function showSlides() {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      index++;
+      if (index > slides.length) {
+        index = 1;
+      }
+      slides[index - 1].classList.add("active");
+      setTimeout(showSlides, 3000); 
+    }
+    showSlides();
+
+    const announcements = [
+      "✨ Flat 50% OFF on all orders ✨",
+      "🚚 Free Shipping on orders above ₹499",
+      "🎁 Buy 1 Get 1 Free on Skincare",
+      "💖 Use code GLOW10 for extra discount"
+    ];
+    let aIndex = 0;
+    function changeAnnouncement() {
+      const text = document.getElementById("announcementText");
+      if(!text) return;
+      text.style.opacity = 0;      /*dissapper*/
+      setTimeout(() => {
+        aIndex = (aIndex + 1) % announcements.length;
+        text.innerText = announcements[aIndex];
+        text.style.opacity = 1;
+      }, 400);
+    }
+    setInterval(changeAnnouncement, 3000);
+
+    const searchInput = document.getElementById("searchInput");        /*section scrolling*/
+    if(searchInput) {
+      searchInput.addEventListener("keypress", function (e) {              /*event listener*/
+        if (e.key === "Enter") {
+          let value = searchInput.value.toLowerCase();
+          if (value.includes("serum")) {
+            document.getElementById("serumSection").scrollIntoView({ behavior: "smooth" });
+          }
+          else if (value.includes("moist") || value.includes("cream")) {
+            document.getElementById("moisturizerSection").scrollIntoView({ behavior: "smooth" });
+          }
+          else if (value.includes("sun")) {
+            document.getElementById("sunscreenSection").scrollIntoView({ behavior: "smooth" });
+          }
+          else {
+            alert("Product not found ❌");
+          }
+        }
+      });
+    }
+
+ function loadOrders() {
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let container = document.getElementById("orderItems");
+
+  if (orders.length === 0) {
+    container.innerHTML = "<h3 style='text-align:center'>No orders yet 😢</h3>";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  orders.forEach((item, index) => {                 /*load order and show its properties*/
+    container.innerHTML += `
+      <div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:12px;">
+        <div style="display:flex;align-items:center;gap:15px;">
+          <img src="${item.image}" style="width:80px;height:80px;border-radius:10px;">
+          <div>
+            <b>${item.name}</b><br>
+            ₹${item.price}
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">
+          Status: <b>${item.status}</b>
+        </p>
+      </div>
+    `;
+  });
+}
+
+function openOrderBox() {                                      /*open order and uske andr order*/
+  document.getElementById("orderBox").style.display = "block";
+  loadOrders(); // orders show karo
+}
+
+function loadOrders() {                        /*order*/
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let container = document.getElementById("orderItems");
+  let total = 0;
+
+  if (orders.length === 0) {
+    container.innerHTML = "<h3 style='text-align:center'>No orders yet 😢</h3>";
+    document.getElementById("orderTotal").innerText = "0";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  orders.forEach((item) => {
+    total += parseInt(item.price);
+
+    container.innerHTML += `
+      <div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:12px;">
+        <div style="display:flex;align-items:center;gap:15px;">
+          <img src="${item.image}" style="width:80px;height:80px;border-radius:10px;">
+          <div>
+            <b>${item.name}</b><br>
+            ₹${item.price}
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">
+          Status: <b>${item.status}</b>
+        </p>
+
+        <button onclick="openMap()" style="
+          margin-top:10px;
+          background:#b76e79;
+          color:white;
+          border:none;
+          padding:8px 15px;
+          border-radius:10px;
+          cursor:pointer;
+        ">
+          📍 Track on Map
+        </button>
+      </div>
+    `;
+  });
+
+  document.getElementById("orderTotal").innerText = total;
+}
+function openMap() {
+  window.open("https://www.google.com/maps", "_blank");
+}
+
+function orderNow(index) {                                /*cart product convert in order*/
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  let item = cart[index];
+
+  // add to orders with status
+  orders.push({
+    ...item,
+    status: "Order Placed"
+  });
+
+
+
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert("✅ Order Placed for " + item.name);
+
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  loadCart();
+  updateCartCount();
+}
+
+function closeOrder() {                              /*user clicked order closed*/
+  let el = document.getElementById("orderBox");
+  if (el) el.style.display = "none";
+}
+</script>
+</body>
+
+</html>
+

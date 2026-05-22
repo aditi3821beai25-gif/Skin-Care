@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Glow 4 U - Conditioner</title>
+</head>
+<style>
+
+body {
+  font-family: Arial;
+  margin: 0;
+  background-image: url("background image.jpg");
+  background-size: 400% 400%;
+  /* animation: gradientBG 10s ease infinite; */
+  background-attachment: contain;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+button{
+background:#b76e79;
+color:white;
+border:none;
+padding:8px 18px;
+border-radius:20px;
+cursor:pointer;
+}
+
+button:hover{
+background:#a65c67;
+}
+
+select{
+padding:8px;
+border-radius:10px;
+border:1px solid #b76e79;
+}
+
+input, textarea{
+padding:8px;
+border-radius:10px;
+border:1px solid #b76e79;
+}
+
+img{
+border-radius:10px;
+transition:0.3s;
+}
+
+img:hover{
+transform:scale(1.08);
+}
+
+/* CONDITIONER SECTION */
+.conditioner-info{
+  padding: 50px 20px;
+  background: #fff5f7;  /* 💖 same theme */
+  text-align: center;
+}
+
+.conditioner-info h2{
+  font-size: 32px;
+  color: #b76e79;
+}
+
+/* COMMON (same for all sections) */
+.subtitle{
+  margin-bottom: 30px;
+  color: gray;
+}
+
+.info-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-box{
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.info-box:hover{
+  transform: translateY(-8px);
+}
+
+.info-box h3{
+  color: #b76e79;
+}
+
+.info-box p{
+  font-size: 14px;
+  color: #555;
+}
+
+
+    .navbar { display: flex; align-items: center; justify-content: space-between; position: fixed; top: 35px; left: 0; width: 100%; z-index: 1000; background: pink; padding: 18px 40px; box-sizing: border-box; height: 110px; }
+    .logo img { height: 100px; width: auto; }
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { text-decoration: none; color: #333; font-size: 16px; transition: 0.3s; font-weight: bold; }
+    .nav-links a:hover { color: #b76e79; }
+    .search-box { flex: 1; display: flex; justify-content: center; }
+    .search-box input { width: 60%; padding: 8px 15px; border-radius: 20px; border: 1px solid #b76e79; outline: none; }
+    .icons { display: flex; gap: 15px; font-size: 20px; cursor: pointer; }
+    .announcement-bar { position: fixed; top: 0; left: 0; width: 100%; background: #b76e79; color: white; text-align: center; padding: 10px; font-size: 14px; z-index: 2000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+    #announcementText { transition: opacity 0.4s ease; }
+</style>
+
+
+<body bgcolor="#e9e0e0">
+
+  <!-- 🔔 Announcement Bar -->
+  <div class="announcement-bar">
+    <span id="announcementText">✨ Flat 50% OFF on all orders ✨</span>
+  </div>
+
+  <div class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\logo.png">
+    </div>
+
+    <!-- MENU -->
+    <div class="nav-links">
+      <a href="webiste.html">Home</a>
+      <a href="webiste.html">Skin</a>
+      <a href="webiste.html">Body</a>
+      <a href="webiste.html">Hair</a>
+      <a href="webiste.html">Makeup</a>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for products..." autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false">
+    </div>
+
+    <!-- ICONS -->
+    <div class="icons">
+      <span>🚚</span>
+      <span>👤</span>
+      <span>🛒</span>
+    </div>
+  </div>
+
+<hr color="#b76e79" style="margin-top: 150px;">
+
+<!-- Conditioner Types -->
+<table width="100%" cellpadding="20">
+<tr>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Smoothening Conditioner</b></font><br>
+<select>
+<option>Select</option>
+<option>Silk Smooth Conditioner</option>
+<option>Keratin Smooth</option>
+<option>Frizz Control</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Repair Conditioner</b></font><br>
+<select>
+<option>Select</option>
+<option>Damage Repair</option>
+<option>Strength Repair</option>
+<option>Deep Repair</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Hydrating Conditioner</b></font><br>
+<select>
+<option>Select</option>
+<option>Deep Moisture</option>
+<option>Aloe Hydration</option>
+<option>Argan Hydrate</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Volume Conditioner</b></font><br>
+<select>
+<option>Select</option>
+<option>Volume Boost</option>
+<option>Light Volume</option>
+<option>Thick Hair Care</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Color Protect Conditioner</b></font><br>
+<select>
+<option>Select</option>
+<option>Color Care</option>
+<option>Shine Protect</option>
+<option>Color Repair</option>
+</select>
+</td>
+
+</tr>
+</table>
+
+<!-- Conditioner Section -->
+<h1 align="center"><font color="#b76e79">Conditioner</font></h1>
+
+<table width="100%" cellpadding="20">
+<tr align="center">
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\conditioner 1.jpeg"width="150"><br><br>
+Smooth Silk Conditioner<br>
+<b>₹499</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\conditioner2.jpeg" width="150"><br><br>
+Damage Repair Conditioner<br>
+<b>₹549</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\conditioner3.jpeg" width="150"><br><br>
+Hydrating Aloe Conditioner<br>
+<b>₹479</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\conditioner4.jpeg" width="150"><br><br>
+Volume Boost Conditioner<br>
+<b>₹529</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\conditioner5.jpeg" width="150"><br><br>
+Color Protect Conditioner<br>
+<b>₹559</b><br><br>
+<button>Add to cart</button>
+</td>
+
+</tr>
+</table>
+<!-- CONDITIONER INFO SECTION -->
+<section class="conditioner-info">
+
+  <h2>Why Choose Glow 4 U Conditioner? 💇‍♀️</h2>
+
+  <p class="subtitle">
+    Smooth, silky and frizz-free hair after every wash 💖
+  </p>
+
+  <div class="info-container">
+
+    <div class="info-box">
+      <h3>🌿 Nourishing Ingredients</h3>
+      <p>
+        Enriched with Keratin, Argan Oil & Aloe Vera 
+        to deeply nourish and repair hair.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>✨ Smooth & Silky Hair</h3>
+      <p>
+        Makes your hair soft, smooth and easy to manage.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>💧 Deep Hydration</h3>
+      <p>
+        Locks moisture into hair strands and prevents dryness.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>🌸 Frizz Control</h3>
+      <p>
+        Reduces frizz and flyaways for a sleek finish.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>🧴 Suitable for All Hair Types</h3>
+      <p>
+        Perfect for dry, damaged and chemically treated hair.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>💖 Why Glow 4 U Conditioner?</h3>
+      <p>
+        A perfect blend of hydration + repair + shine 
+        for healthy and beautiful hair everyday.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+<script>
+    // Search typing effect
+    const words = [
+      "Search for serum...",
+      "Search for facewash...",
+      "Search for moisturizer...",
+      "Search for sunscreen...",
+      "Search for lipstick..."
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+
+    function typeEffect() {
+      const input = document.getElementById("searchInput");
+      if (!input) return; 
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+        }
+        else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+        }
+
+        input.placeholder = currentWord;
+
+        if (j === words[i].length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+        else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+
+    // Announcement bar rotation
+    const announcements = [
+      "✨ Flat 50% OFF on all orders ✨",
+      "🚚 Free Shipping on orders above ₹499",
+      "🎁 Buy 1 Get 1 Free on Skincare",
+      "💖 Use code GLOW10 for extra discount"
+    ];
+
+    let aIndex = 0;
+    function changeAnnouncement() {
+      const text = document.getElementById("announcementText");
+      if(!text) return;
+      text.style.opacity = 0;
+      setTimeout(() => {
+        aIndex = (aIndex + 1) % announcements.length;
+        text.innerText = announcements[aIndex];
+        text.style.opacity = 1;
+      }, 400);
+    }
+
+    window.onload = function () {
+      typeEffect();
+      setInterval(changeAnnouncement, 3000);
+    };
+</script>
+</body>
+</html>

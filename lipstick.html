@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Glow 4 U - Lipstick</title>
+</head>
+<style>
+
+body {
+  font-family: Arial;
+  margin: 0;
+  background-image: url("background image.jpg");
+  background-size: 400% 400%;
+  /* animation: gradientBG 10s ease infinite; */
+  background-attachment: contain;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+button{
+background:#b76e79;
+color:white;
+border:none;
+padding:8px 18px;
+border-radius:20px;
+cursor:pointer;
+}
+
+button:hover{
+background:#a65c67;
+}
+
+select{
+padding:8px;
+border-radius:10px;
+border:1px solid #b76e79;
+}
+
+input, textarea{
+padding:8px;
+border-radius:10px;
+border:1px solid #b76e79;
+}
+
+img{
+border-radius:10px;
+transition:0.3s;
+}
+
+img:hover{
+transform:scale(1.08);
+}
+
+/* LIPSTICK SECTION */
+.lipstick-info{
+  padding: 50px 20px;
+  background: #fff5f7;  /* 💖 same theme */
+  text-align: center;
+}
+
+.lipstick-info h2{
+  font-size: 32px;
+  color: #b76e79;
+}
+
+/* COMMON (reuse same CSS everywhere) */
+.subtitle{
+  margin-bottom: 30px;
+  color: gray;
+}
+
+.info-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-box{
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.info-box:hover{
+  transform: translateY(-8px);
+}
+
+.info-box h3{
+  color: #b76e79;
+}
+
+.info-box p{
+  font-size: 14px;
+  color: #555;
+}
+
+
+    .navbar { display: flex; align-items: center; justify-content: space-between; position: fixed; top: 35px; left: 0; width: 100%; z-index: 1000; background: pink; padding: 18px 40px; box-sizing: border-box; height: 110px; }
+    .logo img { height: 100px; width: auto; }
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { text-decoration: none; color: #333; font-size: 16px; transition: 0.3s; font-weight: bold; }
+    .nav-links a:hover { color: #b76e79; }
+    .search-box { flex: 1; display: flex; justify-content: center; }
+    .search-box input { width: 60%; padding: 8px 15px; border-radius: 20px; border: 1px solid #b76e79; outline: none; }
+    .icons { display: flex; gap: 15px; font-size: 20px; cursor: pointer; }
+    .announcement-bar { position: fixed; top: 0; left: 0; width: 100%; background: #b76e79; color: white; text-align: center; padding: 10px; font-size: 14px; z-index: 2000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+    #announcementText { transition: opacity 0.4s ease; }
+</style>
+
+<body bgcolor="#e9e0e0">
+
+  <!-- 🔔 Announcement Bar -->
+  <div class="announcement-bar">
+    <span id="announcementText">✨ Flat 50% OFF on all orders ✨</span>
+  </div>
+
+  <div class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\logo.png">
+    </div>
+
+    <!-- MENU -->
+    <div class="nav-links">
+      <a href="webiste.html">Home</a>
+      <a href="webiste.html">Skin</a>
+      <a href="webiste.html">Body</a>
+      <a href="webiste.html">Hair</a>
+      <a href="webiste.html">Makeup</a>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for products..." autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false">
+    </div>
+
+    <!-- ICONS -->
+    <div class="icons">
+      <span>🚚</span>
+      <span>👤</span>
+      <span>🛒</span>
+    </div>
+  </div>
+
+<hr color="#b76e79" style="margin-top: 150px;">
+
+<!-- Lipstick Types -->
+<table width="100%" cellpadding="20">
+<tr>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Matte Lipstick</b></font><br>
+<select>
+<option>Select</option>
+<option>Red Matte</option>
+<option>Nude Matte</option>
+<option>Pink Matte</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Glossy Lipstick</b></font><br>
+<select>
+<option>Select</option>
+<option>Peach Gloss</option>
+<option>Rose Gloss</option>
+<option>Berry Gloss</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Liquid Lipstick</b></font><br>
+<select>
+<option>Select</option>
+<option>Velvet Liquid</option>
+<option>Matte Liquid</option>
+<option>Shine Liquid</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Cream Lipstick</b></font><br>
+<select>
+<option>Select</option>
+<option>Soft Cream</option>
+<option>Hydrating Cream</option>
+<option>Butter Cream</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Long Lasting</b></font><br>
+<select>
+<option>Select</option>
+<option>24H Stay</option>
+<option>Waterproof Lipstick</option>
+<option>Transfer Proof</option>
+</select>
+</td>
+
+</tr>
+</table>
+
+<!-- Lipstick Section -->
+<h1 align="center"><font color="#b76e79">Lipstick</font></h1>
+
+<table width="100%" cellpadding="20">
+<tr align="center">
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\lip1.jpeg" width="150"><br><br>
+Red Matte Lipstick<br>
+<b>₹399</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\lip2.jpeg" width="150"><br><br>
+Peach Glossy Lipstick<br>
+<b>₹449</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\lip3.jpeg" width="150"><br><br>
+Velvet Liquid Lipstick<br>
+<b>₹499</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\lip4.jpeg"width="180"><br><br>
+Cream Finish Lipstick<br>
+<b>₹379</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\lip5.jpg" width="150"><br><br>
+Long Lasting Lipstick<br>
+<b>₹459</b><br><br>
+<button>Add to cart</button>
+</td>
+
+</tr>
+</table>
+<!-- LIPSTICK INFO SECTION -->
+<section class="lipstick-info">
+
+  <h2>Why Choose Glow 4 U Lipstick? 💄</h2>
+
+  <p class="subtitle">
+    Bold, beautiful lips with long-lasting comfort 💖
+  </p>
+
+  <div class="info-container">
+
+    <div class="info-box">
+      <h3>🎨 Rich Pigmentation</h3>
+      <p>
+        Highly pigmented formula gives intense color in just one swipe.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>💧 Hydrating Formula</h3>
+      <p>
+        Keeps your lips soft and moisturized without drying them out.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>🌿 Safe Ingredients</h3>
+      <p>
+        Enriched with Vitamin E and natural oils for healthy lips.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>✨ Smooth Application</h3>
+      <p>
+        Glides easily on lips for a smooth and even finish.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>⏳ Long Lasting</h3>
+      <p>
+        Stays on for hours without frequent touch-ups.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>💖 Why Glow 4 U Lipstick?</h3>
+      <p>
+        A perfect blend of color + care + comfort for stunning lips everyday.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+<script>
+    // Search typing effect
+    const words = [
+      "Search for serum...",
+      "Search for facewash...",
+      "Search for moisturizer...",
+      "Search for sunscreen...",
+      "Search for lipstick..."
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+
+    function typeEffect() {
+      const input = document.getElementById("searchInput");
+      if (!input) return; 
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+        }
+        else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+        }
+
+        input.placeholder = currentWord;
+
+        if (j === words[i].length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+        else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+
+    // Announcement bar rotation
+    const announcements = [
+      "✨ Flat 50% OFF on all orders ✨",
+      "🚚 Free Shipping on orders above ₹499",
+      "🎁 Buy 1 Get 1 Free on Skincare",
+      "💖 Use code GLOW10 for extra discount"
+    ];
+
+    let aIndex = 0;
+    function changeAnnouncement() {
+      const text = document.getElementById("announcementText");
+      if(!text) return;
+      text.style.opacity = 0;
+      setTimeout(() => {
+        aIndex = (aIndex + 1) % announcements.length;
+        text.innerText = announcements[aIndex];
+        text.style.opacity = 1;
+      }, 400);
+    }
+
+    window.onload = function () {
+      typeEffect();
+      setInterval(changeAnnouncement, 3000);
+    };
+</script>
+</body>
+</html>

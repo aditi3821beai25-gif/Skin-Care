@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Glow 4 U - Serum</title>
+</head>
+<style>
+
+body {
+  font-family: Arial;
+  margin: 0;
+  background-image: url("background image.jpg");
+  background-size: 400% 400%;
+  /* animation: gradientBG 10s ease infinite; */
+  background-attachment: contain;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+button{
+background:#b76e79;
+color:white;
+border:none;
+padding:8px 18px;
+border-radius:20px;
+cursor:pointer;
+}
+
+button:hover{
+background:#a65c67;
+}
+
+select{
+padding:8px;
+border-radius:10px;
+border:1px solid #b76e79;
+}
+
+input, textarea{
+padding:8px;
+border-radius:10px;
+border:1px solid #b76e79;
+}
+
+img{
+border-radius:10px;
+transition:0.3s;
+}
+
+img:hover{
+transform:scale(1.08);
+}
+.serum-info{
+  padding: 50px 20px;
+  background: #fff5f7;
+  text-align: center;
+}
+
+.serum-info h2{
+  font-size: 32px;
+  color: #b76e79;
+}
+
+.subtitle{
+  margin-bottom: 30px;
+  color: gray;
+}
+
+.info-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-box{
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.info-box:hover{
+  transform: translateY(-8px);
+}
+
+.info-box h3{
+  color: #b76e79;
+}
+
+.info-box p{
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+    .navbar { display: flex; align-items: center; justify-content: space-between; position: fixed; top: 35px; left: 0; width: 100%; z-index: 1000; background: pink; padding: 18px 40px; box-sizing: border-box; height: 110px; }
+    .logo img { height: 100px; width: auto; }
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { text-decoration: none; color: #333; font-size: 16px; transition: 0.3s; font-weight: bold; }
+    .nav-links a:hover { color: #b76e79; }
+    .search-box { flex: 1; display: flex; justify-content: center; }
+    .search-box input { width: 60%; padding: 8px 15px; border-radius: 20px; border: 1px solid #b76e79; outline: none; }
+    .icons { display: flex; gap: 15px; font-size: 20px; cursor: pointer; }
+    .announcement-bar { position: fixed; top: 0; left: 0; width: 100%; background: #b76e79; color: white; text-align: center; padding: 10px; font-size: 14px; z-index: 2000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+    #announcementText { transition: opacity 0.4s ease; }
+</style>
+
+
+<body bgcolor="#e9e0e0">
+
+  <!-- 🔔 Announcement Bar -->
+  <div class="announcement-bar">
+    <span id="announcementText">✨ Flat 50% OFF on all orders ✨</span>
+  </div>
+
+  <div class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\logo.png">
+    </div>
+
+    <!-- MENU -->
+    <div class="nav-links">
+      <a href="webiste.html">Home</a>
+      <a href="webiste.html">Skin</a>
+      <a href="webiste.html">Body</a>
+      <a href="webiste.html">Hair</a>
+      <a href="webiste.html">Makeup</a>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for products..." autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false">
+    </div>
+
+    <!-- ICONS -->
+    <div class="icons">
+      <span>🚚</span>
+      <span>👤</span>
+      <span>🛒</span>
+    </div>
+  </div>
+
+<hr color="#b76e79" style="margin-top: 150px;">
+
+<!-- Serum Types -->
+<table width="100%" cellpadding="20">
+<tr>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Vitamin C Serum</b></font><br>
+<select>
+<option>Select</option>
+<option>Brightening Vitamin C</option>
+<option>Glow Boost Serum</option>
+<option>Radiance Serum</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Hyaluronic Serum</b></font><br>
+<select>
+<option>Select</option>
+<option>Hydration Boost</option>
+<option>Deep Moisture Serum</option>
+<option>Plumping Serum</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Niacinamide Serum</b></font><br>
+<select>
+<option>Select</option>
+<option>Pore Minimizing</option>
+<option>Oil Control Serum</option>
+<option>Skin Balance Serum</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Retinol Serum</b></font><br>
+<select>
+<option>Select</option>
+<option>Anti Aging Serum</option>
+<option>Wrinkle Repair</option>
+<option>Night Repair Serum</option>
+</select>
+</td>
+
+<td align="center">
+<font color="#b76e79" size="4"><b>Brightening Serum</b></font><br>
+<select>
+<option>Select</option>
+<option>Glow Serum</option>
+<option>Radiant Skin Serum</option>
+<option>Vitamin Boost Serum</option>
+</select>
+</td>
+
+</tr>
+</table>
+
+<!-- Serum Section -->
+<h1 align="center"><font color="#b76e79">Serum</font></h1>
+
+<table width="100%" cellpadding="20">
+<tr align="center">
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\brighting serum.jpg" width="150"><br><br>
+Vitamin C Glow Serum<br>
+⭐ 4.8 | 250 Reviews<br>
+<font size="2" color="gray">
+Boosts brightness and reduces dark spots.
+</font><br><br>
+<b>₹799</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\hyaluric serum.jpg" width="150"><br><br>
+Hyaluronic Hydration Serum<br>
+⭐ 4.7 | 210 Reviews<br>
+<font size="2" color="gray">
+Deep hydration for soft and plump skin.
+</font><br><br>
+<b>₹899</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\retinol serum.jpg" width="150"><br><br>
+Niacinamide Balance Serum<br>
+⭐ 4.6 | 190 Reviews<br>
+<font size="2" color="gray">
+Controls oil and minimizes pores.
+</font><br><br>
+<b>₹749</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\niacinamide.jpg" width="150"><br><br>
+Retinol Night Serum<br>
+⭐ 4.9 | 320 Reviews<br>
+<font size="2" color="gray">
+Reduces wrinkles and improves skin texture.
+</font><br><br>
+
+<b>₹999</b><br><br>
+<button>Add to cart</button>
+</td>
+
+<td bgcolor="#eeeeee">
+<img src="C:\Users\hp\OneDrive\Desktop\New folder (2)\vitamin c serum.jpg" width="150"><br><br>
+Brightening Glow Serum<br>
+⭐ 4.7 | 205 Reviews<br>
+<font size="2" color="gray">
+Enhances glow and evens skin tone.
+</font><br><br>
+<b>₹849</b><br><br>
+<button>Add to cart</button>
+</td>
+
+</tr>
+</table>
+<!-- SERUM INFO SECTION -->
+<section class="serum-info">
+
+  <h2>Why Choose Glow 4 U Serum? ✨</h2>
+
+  <p class="subtitle">
+    Lightweight care for radiant, healthy and glowing skin 💖
+  </p>
+
+  <div class="info-container">
+
+    <div class="info-box">
+      <h3>🍊 Vitamin C Boost</h3>
+      <p>
+        Brightens dull skin, reduces dark spots and gives 
+        an instant natural glow.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>💧 Deep Hydration</h3>
+      <p>
+        Infused with Hyaluronic Acid to deeply hydrate 
+        and keep your skin soft and plump.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>🌿 Natural Ingredients</h3>
+      <p>
+        Made with Aloe Vera, Niacinamide & plant extracts 
+        for gentle and effective skincare.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>✨ Lightweight Formula</h3>
+      <p>
+        Non-sticky and fast absorbing formula that feels 
+        light on skin and works instantly.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>🌸 Suitable for All Skin Types</h3>
+      <p>
+        Works perfectly for oily, dry and sensitive skin 
+        without causing irritation.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>💖 Why Glow 4 U Serum?</h3>
+      <p>
+        A perfect blend of glow + hydration + repair 
+        for everyday healthy and radiant skin.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+    // Search typing effect
+    const words = [
+      "Search for serum...",
+      "Search for facewash...",
+      "Search for moisturizer...",
+      "Search for sunscreen...",
+      "Search for lipstick..."
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+
+    function typeEffect() {
+      const input = document.getElementById("searchInput");
+      if (!input) return; 
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+        }
+        else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+        }
+
+        input.placeholder = currentWord;
+
+        if (j === words[i].length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+        else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+
+    // Announcement bar rotation
+    const announcements = [
+      "✨ Flat 50% OFF on all orders ✨",
+      "🚚 Free Shipping on orders above ₹499",
+      "🎁 Buy 1 Get 1 Free on Skincare",
+      "💖 Use code GLOW10 for extra discount"
+    ];
+
+    let aIndex = 0;
+    function changeAnnouncement() {
+      const text = document.getElementById("announcementText");
+      if(!text) return;
+      text.style.opacity = 0;
+      setTimeout(() => {
+        aIndex = (aIndex + 1) % announcements.length;
+        text.innerText = announcements[aIndex];
+        text.style.opacity = 1;
+      }, 400);
+    }
+
+    window.onload = function () {
+      typeEffect();
+      setInterval(changeAnnouncement, 3000);
+    };
+</script>
+</body>
+</html>
